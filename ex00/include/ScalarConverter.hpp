@@ -24,7 +24,7 @@ enum e_type
     INVALID = -1
 };
 
-e_type identifyType(const std::string str);
+e_type identifyType(const std::string &str);
 
 #endif
 
