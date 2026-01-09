@@ -10,8 +10,21 @@ class ScalarConverter
         ScalarConverter &operator=(const ScalarConverter &other);
         ~ScalarConverter(void);
     public:
-        static void convert(const std::string& literal);
+        static void convert(const std::string &str);
 };
+
+
+enum e_type
+{
+    SPECIAL = 0,
+    CHAR = 1,
+    INT = 2,
+    FLOAT = 3,
+    DOUBLE = 4,
+    INVALID = -1
+};
+
+e_type identifyType(const std::string str);
 
 #endif
 

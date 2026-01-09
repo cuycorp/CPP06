@@ -7,10 +7,10 @@ IFLAGS = -I include
 FLAGS = -Wall -Wextra -Werror -std=c++98 ${IFLAGS}
 
 #Header files
-HDRS = include/Bureaucrat.hpp
+HDRS = include/ScalarConverter.hpp
 
 #Source files
-SRCS = src/main.cpp src/Bureaucrat.cpp 
+SRCS = src/main.cpp src/ScalarConverter.cpp 
 
 #Object file
 
