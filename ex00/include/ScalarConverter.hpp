@@ -26,7 +26,6 @@ enum e_type
 
 e_type identifyType(const std::string &str);
 
-
 //****************** Display
 void displaySpecial(const std::string &str);
 void displayChar(const std::string &str);
