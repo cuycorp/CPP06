@@ -26,5 +26,20 @@ enum e_type
 
 e_type identifyType(const std::string &str);
 
+
+//****************** Display
+void displaySpecial(const std::string &str);
+void displayChar(const std::string &str);
+void displayInt(const std::string &str);
+void displayFloat(const std::string &str);
+void displayDouble(const std::string &str);
+
+//****************** Utils
+void printString(const std::string str0, const std::string str1);
+void printInt(const std::string str0, const int n1);
+bool isNumber(const char c);
+bool isNumberString(const std::string str);
+bool isSignedNumberString(const std::string str);
+
 #endif
 

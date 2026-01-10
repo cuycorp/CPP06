@@ -1,37 +1,71 @@
 #include "ScalarConverter.hpp"
 
-/*
-static bool isChar(const std::string &str); // simbol or letter, not number
-static bool isInt(const char *str); //numbers, within limits of int
-static bool isFloat(const char *str); // decimal
-static bool isDouble(const char *str); // decimal with f
-static bool isSpecial(const std::string &str); 
-*/
-
 static bool isChar(const std::string str)
 {
-    size_t len = str.length();
-
+    size_t len;
+    len = str.length();
+    if (len == 1 && !isNumber(str[0])) 
+        return (true);
+    if (len == 3 && isNumber(str[1]) && str[0] == '\'' && str[2] == '\'' ) 
+        return (true);
+    return (false);
 }
 
 static bool isInt(const std::string str)
 {
-    size_t len = str.length();
     int i = 0;
     if( str[i] == '+' || str[i] == '-')
         i++;
     while(str[i])
     {
-        if (str)
+        if (isNumber(str[i]))
+            i++;
+        else
+            return (false);
     }
-    return (false0)
+    return (true);
 } 
 static bool isSpecial(const std::string &str)
 {
-    if (str == "nan" || str ==  "nanf") //+-inf and +-inff
+    if (str == "nan" || str ==  "nanf" || str == "-inff" || str ==  "+inff" || str ==  "inff"
+        || str == "-inf" || str ==  "+inf" || str ==  "inf") //+-inf and +-inff
         return (true);
     return (false);
 }
+
+static bool isFloat(const int f, const int dot, const std::string str)
+{
+    std::string beforeDot;
+    std::string afterDot;
+
+    if (dot < f)
+    {
+        beforeDot = str.substr(0, dot);
+        afterDot = str.substr(dot + 1, str.length() - (dot + 2));
+        if (beforeDot.empty() || afterDot.empty())
+            return (false);
+        if (!isNumberString(afterDot) || !isSignedNumberString(beforeDot))
+            return (false);
+        return (true);
+    }
+    return (false);
+}
+
+static bool isDouble(const int dot, const std::string str)
+{
+    std::string beforeDot;
+    std::string afterDot;
+
+        beforeDot = str.substr(0, dot);
+        afterDot = str.substr(dot + 1, str.length() - (dot));
+        if (beforeDot.empty() || afterDot.empty())
+            return (false);
+        if (!isNumberString(afterDot) || !isSignedNumberString(beforeDot))
+            return (false);
+        return (true);
+    
+}
+
 e_type identifyType(const std::string &str)
 {
     int f;
@@ -47,5 +81,10 @@ e_type identifyType(const std::string &str)
         else if (isInt(str))
             return (INT);
     }
-    //if()
+    if (f == -1 && dot != -1 && isDouble(dot, str))
+        return (DOUBLE);
+    if (f != -1 && dot != -1 && isFloat(f, dot, str))
+        return (FLOAT);
+    else 
+        return (INVALID);
 }

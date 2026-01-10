@@ -30,8 +30,19 @@ ScalarConverter::~ScalarConverter(void)
 
 void ScalarConverter::convert(const std::string &str)
 {
-
     e_type type = identifyType(str);
+    if (type == CHAR)
+        displayChar(str);
+    else if(type == INT)
+        displayInt(str);
+    else if(type == SPECIAL)
+        displaySpecial(str);
+    else if(type == FLOAT)
+        displayFloat(str);
+    else if(type == DOUBLE)
+        displayDouble(str);
+    else if(type == INVALID)
+        std::cout << "invalid: " << str << ".0" << std::endl; 
 }
 /*
     char checkChar;

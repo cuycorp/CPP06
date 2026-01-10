@@ -10,7 +10,8 @@ FLAGS = -Wall -Wextra -Werror -std=c++98 ${IFLAGS}
 HDRS = include/ScalarConverter.hpp
 
 #Source files
-SRCS = src/main.cpp src/ScalarConverter.cpp 
+SRCS = src/main.cpp src/ScalarConverter.cpp src/identifyType.cpp src/utils.cpp \
+	   src/displayDataTypes.cpp
 
 #Object file
 
