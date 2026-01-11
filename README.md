@@ -18,13 +18,19 @@
         * reinterpret cast
 
     * ex02
+        * polymorphic class: class with at least one virtual function.
+        * virtual destructor is important not to skip destroying A, B, C when defined:
+            * Base* b = new A(); delete b;
+        * 
+
 
 * Casting 
-| Cast Type   | Purpose                       | When to Use         |
-|-------------|-------------------------------|---------------------|
-| static      | Compile-time                  | Numeric, Upcasting in inheritance hierarchies  |
-| dynamic     | Runtime-check                 | Safe downcasting in polymorphic hierarchies | 
-| const_cast  | Add or remove const/volatile  | removing const        |
-| reinterpret | Bit-level reinterpretation    | pointer conversion, system manipulation|
-| C-style     | Old-style generic cast        | Avoid in modern C++ |
+
+| Cast Type   | Purpose                       | When to Use                                   |
+|-------------|-------------------------------|-----------------------------------------------|
+| static      | Compile-time                  | Numeric, Upcasting in inheritance hierarchies |
+| dynamic     | Runtime-check                 | Safe downcasting in polymorphic hierarchies   | 
+| const_cast  | Add or remove const/volatile  | removing const                                |
+| reinterpret | Bit-level reinterpretation    | pointer conversion, system manipulation       |
+| C-style     | Old-style generic cast        | Avoid in modern C++                           |
 
