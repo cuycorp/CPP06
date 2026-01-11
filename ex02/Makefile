@@ -1,5 +1,5 @@
 #Executable name
-NAME = serialization
+NAME = identifyType
 
 #Compiler and flags 
 CC = c++
@@ -7,10 +7,10 @@ IFLAGS = -I include
 FLAGS = -Wall -Wextra -Werror -std=c++98 ${IFLAGS}
 
 #Header files
-HDRS = include/Serializer.hpp
+HDRS = include/Base.hpp
 
 #Source files
-SRCS = src/main.cpp src/Serializer.cpp
+SRCS = src/main.cpp src/Base.cpp src/A.cpp src/B.cpp src/C.cpp src/utils.cpp
 
 #Object file
 
