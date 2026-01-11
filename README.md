@@ -34,3 +34,6 @@
 | reinterpret | Bit-level reinterpretation    | pointer conversion, system manipulation       |
 | C-style     | Old-style generic cast        | Avoid in modern C++                           |
 
+
+
+todo: fix compiling erros, finish cpp05
