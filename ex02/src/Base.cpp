@@ -19,11 +19,17 @@ Base * generate(void)
 }
 void identify(Base* p)
 {
-    return 
-} //how do you identify the type of a variable
+    if (dynamic_cast <A *>(p)) //checking that pointer to A is not null
+        std::cout  << "class A" << std::endl;
+    else if (dynamic_cast< B *>(p))
+        std::cout  << "class B" << std::endl;
+    else if (dynamic_cast< C *>(p))
+        std::cout  << "class C" << std::endl;
+} 
 void identify(Base& p)
 {
-
+    
 }
 
-// reinterpret_cast<Data *>(raw);
+// dynamic_cast<Data *>(raw);
+// salida = reinterpret_cast<Data *>(raw);
