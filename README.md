@@ -18,10 +18,18 @@
         * reinterpret cast
 
     * ex02
+        * dynamic cast
         * polymorphic class: class with at least one virtual function.
         * virtual destructor is important not to skip destroying A, B, C when defined:
             * Base* b = new A(); delete b;
         * 
+* Other
+    * Inheritance: 
+        * Creates a relationship between classes. 
+        * Enables polymorphism, upcasating i.e(Animal* a = new Dog;)
+    * Polymorphic hierarchy
+        * virtual functions, Abstract classes.
+
 
 
 * Casting 

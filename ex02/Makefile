@@ -7,7 +7,7 @@ IFLAGS = -I include
 FLAGS = -Wall -Wextra -Werror -std=c++98 ${IFLAGS}
 
 #Header files
-HDRS = include/Base.hpp
+HDRS = include/Base.hpp include/A.hpp include/B.hpp include/C.hpp
 
 #Source files
 SRCS = src/main.cpp src/Base.cpp src/A.cpp src/B.cpp src/C.cpp src/utils.cpp

@@ -1,16 +1,19 @@
 #include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
 #include <stdexcept>
+#include <cstdlib>
 
 Base * generate(void)
 {
     int i = rand() % 3;
     if (i == 0)
-        Base *b = new A();
+        return(new A());
     else if (i == 1)
-        Base *b = new B();
+        return(new B());
     else
-        Base *b = new C();
-    return (b);
+        return(new C());
 }
 void identify(Base* p)
 {
@@ -21,38 +24,26 @@ void identify(Base* p)
     else if (dynamic_cast< C *>(p))
         std::cout  << "class C" << std::endl;
 } 
+
 void identify(Base& p)
 {
-    try
-    {
-        A &refA = dynamic_cast <A&>(p);
-        std::cout << "class A reference" << std::endl;
-    }
-    catch (std::bad_cast& bad)
-    {
-        std::cout << "Not class A reference" << bad.what <<std::endl;
-    }
-    
-    try
-    {
-        B &refB = dynamic_cast <B&>(p);
-        std::cout << "class B reference" << std::endl;
-    }
-    catch (std::bad_cast& bad)
-    {
-        std::cout << "Not class B reference" << bad.what <<std::endl;
-    }
-    
-    try
-    {
-        C &refC = dynamic_cast <C&>(p);
-        std::cout << "class A reference" << std::endl;
-    }
-    catch (std::bad_cast& bad)
-    {
-        std::cout << "Not class A reference" << bad.what <<std::endl;
-    }
-}
+    try {
+        A& a = dynamic_cast<A&>(p);
+        (void)a;
+        std::cout << "A" << std::endl;
+        return;
+    } catch (...) {}
 
-// dynamic_cast<Data *>(raw);
-// salida = reinterpret_cast<Data *>(raw);
+    try {
+        B& b = dynamic_cast<B&>(p);
+        (void)b;
+        std::cout << "B" << std::endl;
+        return;
+    } catch (...) {}
+
+    try {
+        C& c = dynamic_cast<C&>(p);
+        (void)c;
+        std::cout << "C" << std::endl;
+    } catch (...) {}
+}

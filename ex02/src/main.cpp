@@ -1,17 +1,24 @@
 #include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+
+#define RESET   "\033[0m"
+#define PINK    "\033[35m"
 
 Base * generate(void);
 void identify(Base* p);
 void identify(Base& p);
 
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
 
 int main() {
     srand(time(NULL));
     
-    std::cout << "=== Testing with pointers ===" << std::endl;
+    std::cout << PINK << "=== Testing with pointers ===" << RESET << std::endl;
     for (int i = 0; i < 5; i++) {
         Base* ptr = generate();
         std::cout << "Generated object type (pointer): ";
@@ -19,7 +26,7 @@ int main() {
         delete ptr;
     }
     
-    std::cout << "\n=== Testing with references ===" << std::endl;
+    std::cout << PINK <<  "\n=== Testing with references ===" << RESET << std::endl;
     for (int i = 0; i < 5; i++) {
         Base* ptr = generate();
         std::cout << "Generated object type (reference): ";
@@ -27,7 +34,7 @@ int main() {
         delete ptr;
     }
     
-    std::cout << "\n=== Testing specific instances ===" << std::endl;
+    std::cout << PINK <<  "\n=== Testing specific instances ===" << RESET << std::endl;
     A a;
     B b;
     C c;
@@ -46,6 +53,6 @@ int main() {
     identify(&c);
     std::cout << "Object c (reference): ";
     identify(c);
-    
+    std::cout << PINK <<  "\n=== End ===" << RESET << std::endl;
     return 0;
 }
